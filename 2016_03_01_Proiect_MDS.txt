@@ -1,0 +1,48 @@
+site pentru oamenii depresivi
+
+cerinte:
+- toti - Irina
+
+design/planificare:
+- Vladimir
+- Marina
+
+implementare:
+- toti!
+
+testare automata/manuala:
+- toti!
+
+documentatie:
+- Vladimir (to help)
+- Maria
+
+
+cerinte:
+- site web, destinat oamenilor depresivi
+- pagini web
+- un forum
+- chat (pe baza de JS cu AJAX/server)
+- un SoC (system on chip) pentru hosting
+
+- prima pagina: cu ce ne ocupam, ce e site-ul
+- test de cat de depresiv esti
+- sectiuni: home page, forum, sfaturi/articole, (linie anti-suicid), cabinete
+- monetizare: sectiunea de cabinete, prin reclame
+- articolele, cabinetele se incarca dinamic din DB, posibil si chat history
+
+feature list:
+// TODO
+
+
+tehnologii:
+- HTTP/AJAX - trebuie sa stim protocolul de comunicare
+- server - C++, serverul
+- client - JavaScript, CSS, HTML, framework-uri (vedem noi, probabil Angular)
+- db - incercam non-relationala
+- forum - phpBB (PHP) sau il scriem de la 0, folosind serverul (putem folosi aceeasi baza de date)
+
+resurse:
+- mockups in Photoshop -> poze
+
+ideea nu e batuta in cuie, se poate modifica, in functie de ce alte idei ne vin.

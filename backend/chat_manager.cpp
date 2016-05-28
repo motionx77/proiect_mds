@@ -39,7 +39,7 @@ std::string chat_manager::insert_message(const chat::message &msg)
 
 std::string chat_manager::get_messages_after(int id)
 {
-
+    chat_room.get_messages_after(id);
 }
 
 

@@ -30,8 +30,8 @@ static http::response insert_message(http::request r) {
 
 static http::response get_messages_after_id(http::request r) {
     auto components = r.split_url();
-    if(components.size()) {
-        auto id = std::atoi(components.front().c_str());
+    if(components.size() >= 3) {
+        auto id = std::atoi(components[2].c_str());
         return {r, chat_manager::get_messages_after(id)};
     } else {
         return {r, http::InternalServerError};

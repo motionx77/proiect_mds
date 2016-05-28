@@ -3,12 +3,37 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script> 
+var last = 0;
 function send() {
-	data = { "sender": 'vladimir' , "message": 'text'};
-	$.post("chat/insert_message", JSON.stringify(data), function(data) {
-		alert(data);
+	to_send = { "sender": 'vladimir' , "message": 'text'};
+	$.post("chat/insert_message", JSON.stringify(to_send), function(data) {
+        var json = JSON.parse(data);
+        last = json[0][0];
+		alert(json[0][0]);
 	});
 }
+
+function get() {
+    $.get("chat/get_messages_after" + "/" + last, function(data) {
+    	json = JSON.parse(data);
+    	var last_idx = json[0].length - 1;
+    	//
+    	alert(json[last_idx][0]);
+    	last = json[last_idx][0];
+    });
+}
+
+function get_all() {   
+	 $.get("chat/get_all_messages", function(data) {
+    	var json = JSON.parse(data);
+    	var last_idx = json[0].length - 1;
+    	last = json[last_idx][0];
+    	var str = "";
+    	for(var idx = 0; idx < last_idx + 1; ++idx)
+    		str += json[idx] += "\n";
+    	alert(str);
+    });
+	}
 </script>
  
 <style> 
@@ -30,6 +55,8 @@ function send() {
 <div id="flip">Click to slide down panel</div>
 <div id="panel">Hello world!</div>
 <button id="bla" onclick="send()" >Post</button>
+<button id="bla" onclick="get()" >Get after the last one</button>
+<button id="bla" onclick="get_all()" >Get all</button>
 
 </body>
 </html>

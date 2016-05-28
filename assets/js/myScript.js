@@ -37,7 +37,7 @@ function insertArticle(titlu,continut)
 	page.appendChild(articole);
 }
 
-window.onload=function(){insertArticle("titlu 1", "continut 1");insertArticle("titlu 2", "continut 2");};
+window.onload=function(){insertArticle("titlu  1", "continut 1");insertArticle("titlu 2", "continut 2");};
 
 
 

@@ -38,6 +38,16 @@ static http::response get_messages_after_id(http::request r) {
     }
 }
 
+static http::response fetch_article(http::request r) {
+    auto components = r.split_url();
+    if(components.size() >= 2) {
+        auto id = std::atoi(components[1].c_str());
+        return {r, chat_manager::get_article(id)};
+    } else {
+        return {r, http::InternalServerError};
+    }
+}
+
 
 void add_routes(web::server &server)
 {
@@ -49,4 +59,5 @@ void add_routes(web::server &server)
     server.add_route(http::method::Get, std::regex{"\\/chat\\/get_all_messages$"}, ::get_all_messages);
     server.add_route(http::method::Get, std::regex{"\\/chat\\/get_messages_after\\/(\\d+)$"}, ::get_messages_after_id);
     server.add_route(http::method::Post, std::regex{"\\/chat\\/insert_message$"}, ::insert_message);
+    server.add_route(http::method::Get, std::regex{"\\/articles\\/(\\d+)$"}, ::fetch_article);
 }

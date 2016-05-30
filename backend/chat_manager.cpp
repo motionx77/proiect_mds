@@ -43,6 +43,16 @@ std::string chat_manager::get_messages_after(int id)
     return serialize_messages(iterators.first, iterators.second);
 }
 
+std::string chat_manager::get_article(int id) {
+    auto article_title = "Article " + std::to_string(id);
+    auto content = "Content for article " + std::to_string(id);
+    Json::Value root(Json::arrayValue);
+
+    root.append(article_title);
+    root.append(content);
+    return root.toStyledString();
+}
+
 
 std::string chat_manager::get_all_messages()
 {

@@ -9,6 +9,21 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link type="text/css" rel="stylesheet" href="chat.css" />
     <script src="js/article.js"></script>
+    <script> 
+
+    window.onload = function () {
+        for(var idx = 1; idx < 5; ++idx) {
+            $.get("articles/" + idx, function(data) {
+                var response = JSON.parse(data);
+                var title = response[0];
+                var content = response[1];
+                insertArticle(title, content);
+            });
+        }
+    };
+
+
+    </script>
 </head>
 
 <body>
@@ -30,15 +45,6 @@
         <div class="articole">
             <div class="primary-col">
                 <div class="generic">
-                    <div class="panel">
-                        <div class="title">
-                            <h1>Lorem ipsum dolor sit amet consectetur</h1>
-                        </div>
-                        <div class="content">
-                            <p> Ut mollis blandit mi, vel ultricies arcu iaculis in. Vestibulum pellentesque volutpat sem quis mattis. Morbi egestas suscipit sem ut lacinia. Morbi interdum, orci et lacinia lacinia, nibh sapien blandit leo, a ornare lectus nulla in urna mauris, quis hendrerit mi hendrerit quis. Lorem ipsu.</p>
-                            <div class="button mar-top20"><a href="#">More INfo</a></div>
-                        </div>
-                    </div>
                     <div class="mar-bottom20"></div>
                 </div>
             </div>
